@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>Kavach AI - Before you click, pay, or share</title>
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<div class="app">
+
+  <header class="top">
+    <div class="brand-row">
+      <div class="brand">
+        <svg class="brand-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M24 4 L42 11 V22 C42 33 34.5 41 24 44 C13.5 41 6 33 6 22 V11 Z"
+                fill="#D98C15" stroke="#fff" stroke-width="2"/>
+          <path d="M17 24 L22 29 L32 18" stroke="#0B3A32" stroke-width="3.2"
+                stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="brand-name" data-i18n="app_name">Kavach AI</span>
+      </div>
+      <div class="lang-toggle">
+        <button id="lang-en" class="active" onclick="setLang('en')">EN</button>
+        <button id="lang-hi" onclick="setLang('hi')">हिंदी</button>
+      </div>
+    </div>
+    <p class="tagline" data-i18n="tagline">Before you click, pay, or share - check it here.</p>
+  </header>
+
+  <main>
+    <div class="mode-list" id="mode-list">
+      <button class="mode-btn active" data-mode="message">
+        <span class="icon">💬</span><span data-i18n="tab_message">Check a Message</span>
+      </button>
+      <button class="mode-btn" data-mode="screenshot">
+        <span class="icon">📷</span><span data-i18n="tab_screenshot">Check a Screenshot</span>
+      </button>
+      <button class="mode-btn" data-mode="url">
+        <span class="icon">🔗</span><span data-i18n="tab_url">Check a Link</span>
+      </button>
+      <button class="mode-btn" data-mode="qr">
+        <span class="icon">🔳</span><span data-i18n="tab_qr">Check a QR Code</span>
+      </button>
+      <button class="mode-btn" data-mode="call">
+        <span class="icon">📞</span><span data-i18n="tab_call">Check a Call</span>
+      </button>
+    </div>
+
+    <!-- Message panel -->
+    <div class="panel" id="panel-message">
+      <textarea id="input-message" data-i18n-placeholder="placeholder_message"
+                placeholder="Paste the message you received here..."></textarea>
+    </div>
+
+    <!-- Screenshot panel -->
+    <div class="panel hidden" id="panel-screenshot">
+      <label class="upload-box" for="file-screenshot">
+        <span class="icon">📷</span>
+        <span data-i18n="upload_hint">Tap to upload a photo or screenshot</span>
+        <input type="file" id="file-screenshot" accept="image/*">
+      </label>
+      <img id="preview-screenshot" class="upload-preview hidden" alt="Selected screenshot preview">
+    </div>
+
+    <!-- URL panel -->
+    <div class="panel hidden" id="panel-url">
+      <input type="url" id="input-url" data-i18n-placeholder="placeholder_url"
+             placeholder="Paste the website link here...">
+    </div>
+
+    <!-- QR panel -->
+    <div class="panel hidden" id="panel-qr">
+      <label class="upload-box" for="file-qr">
+        <span class="icon">🔳</span>
+        <span data-i18n="upload_hint">Tap to upload a photo or screenshot</span>
+        <input type="file" id="file-qr" accept="image/*">
+      </label>
+      <img id="preview-qr" class="upload-preview hidden" alt="Selected QR code preview">
+    </div>
+
+    <!-- Call panel -->
+    <div class="panel hidden" id="panel-call">
+      <textarea id="input-call" data-i18n-placeholder="placeholder_call"
+                placeholder="Type or paste what the caller said..."></textarea>
+    </div>
+
+    <button class="primary-btn" id="check-btn" onclick="runCheck()" data-i18n="button_check">
+      Check This Now
+    </button>
+
+    <div id="result-region" aria-live="polite"></div>
+  </main>
+
+  <footer class="disclaimer" data-i18n="footer_note">
+    Kavach AI gives guidance based on available evidence. It is not a guarantee.
+    When unsure, always verify through an official source.
+  </footer>
+</div>
+
+<script src="/assets/app.js"></script>
+</body>
+</html>
